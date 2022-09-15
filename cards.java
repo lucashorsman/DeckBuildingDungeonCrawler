@@ -1,8 +1,13 @@
+import java.util.Dictionary;
+import java.util.Hashtable;
+
 class cards {
             public static int Cost;
             public static int Damage;
             public static int Block;
             public static String CardName = "";
+
+
             
 
 
