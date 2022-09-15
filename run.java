@@ -8,11 +8,13 @@ public class run {
 
     public static void main(String[] args) {
         //init
-        HashMap<Integer, String> CardList = new HashMap<Integer, String>();
-        // cards[] DrawPile;
+        //HashMap<Integer, String> CardList = new HashMap<Integer, String>();
+        //DO 2D ARRAYS
+        //Cards[][] DrawPile = {[1, strike]}
+`       //Cards[0][1]  [strike]
         // DrawPile = new cards[5]; 
 
-        for(int i = 0; i<5; i++){
+        for(int i = 0; i<6; i++){
             if(i<3){
             CardList.put(i, "strike");
         }
@@ -29,7 +31,11 @@ public class run {
     //         System.out.print("what monster to play?");
     //   int s = in.nextInt();
     //     }
-        System.out.println(CardList);
+        System.out.println(CardList.get(0));
+        //playCard(CardList.get(0))
+        
+        
+        strike.play(1);
   
     }}
 

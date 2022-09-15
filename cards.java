@@ -6,18 +6,15 @@ class cards {
             public static int Damage;
             public static int Block;
             public static String CardName = "";
-
-
-            
-
-
-
+        public static void play(int Mob, String CardName){
+            System.out.println(CardName +" " + Cost + Mob);
+        }
 }
 
 class strike extends cards{
 
 
-    public static void play(int Mob) {
+    public static void play(int Mob ) {
 
         CardName = "strike";
         Cost = 1;
