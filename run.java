@@ -1,19 +1,17 @@
 
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Hashtable;
-import java.util.List;
-import java.util.Scanner;
-
 public class run {
 
     public static void main(String[] args) {
-        card.init();
-        System.out.println(card.Deck);
-        card.store("strike");
-        System.out.println(card.Deck);
-            
+        int EnemyHP = 10;
+        
+        card.deckInit();
+        // System.out.println(card.Deck);
+        // System.out.println(card.DrawPile);
+        // card.createDrawPile();
+        // System.out.println(card.DrawPile);
+        card.createDrawPile();
+        card.DrawHand();
+                
 
 
     //     Scanner in = new Scanner(System.in);

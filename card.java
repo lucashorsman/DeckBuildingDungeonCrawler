@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Dictionary;
 import java.util.Hashtable;
 import java.util.List;
@@ -18,24 +19,42 @@ class card {
 
     public static void store(String CardName){
         Deck.add(CardName);
-
     }
-    public static void init(){
+
+    public static void deckInit(){
         for(int i = 0; i<5; i++){
             if(i<3){
-            Deck.add("strike");
+            card.store("strike");
         }
 
          if (i>=3){
-            Deck.add("defend");
+            card.store("defend");
 
-         } 
+         }
     }
-    }
-    public String toString(){
-        return "hi " + Cost +" "+ Damage + CardName_ + Block ;
+        card.store("Bash");
 
     }
+    public static void shuffle(){
+        Collections.shuffle(Deck);
+        // integrate with discard eventually
+    }
+    public static void createDrawPile(){
+        card.shuffle();
+        DrawPile = Deck;
+        //eventually implement something slightly more complex to handle exhausting cards
+    }
+    public static void DrawHand(){
+        for(int i = 0; i<3; i++ ){
+            CardName_ = DrawPile.get(i);
+            DrawPile.remove(i);
+            Hand.add(CardName_);
+        }
+        System.out.println(Hand);
+    }
+
+
+
 }
 
 
