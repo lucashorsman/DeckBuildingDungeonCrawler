@@ -14,7 +14,7 @@ class Card {
     static int Cost;
     public static Card Defend = new Defend();
     public static Card Strike = new Strike();
-    public static Card CardName_;
+    public static Card CardName_ = new Card();
 
 
 
@@ -32,20 +32,6 @@ class Card {
       //  Deck.add("BASH");
     }
 
-    // takes Cardname from user input -- eventually change input method to press a
-    // number to pick card from hand
-
-
-    // shuffles the Deck array, which stores every card the player has at any given
-    // moment
-    // shouldnt this shuffle drawpile --12am thoughts -- 1201, it should be drawpile
-    // eventually but for now its fine
-    // public static void shuffle() {
-    // Collections.shuffle(DrawPile);
-    // // integrate with discard eventually
-    // }
-
-    // runs once at beginning of round
 
     public static void discardHand() {
         int j = 0;
@@ -58,6 +44,15 @@ class Card {
 
 
     }
+    public static void discardCard(int i) {
+        Card x = Hand.get(i);
+        Hand.remove(x);
+        DiscardPile.add(x);
+
+    }
+    
+    
+    
 
     public static void createDrawPile() {
         for (Card x : Deck) {
@@ -87,12 +82,12 @@ class Card {
         }
     }
 
-    public static List<Card> getDraw() {
-        return DrawPile;
+    public static String getDraw() {
+        return DrawPile.toString();
     }
 
-    public static List<Card> getHand() {
-        return Hand;
+    public static String getHand() {
+        return Hand.toString();
 
     }
 
@@ -107,11 +102,16 @@ class Card {
     }
 public int getCost(){
     
-    return Cost = 0;
+    return 0;
 }
 public int getBlock() {
     return 0;
 }
+
+public int getDamage() {
+    return 0;
+}
+
 
    
 static class Defend extends Card {
@@ -126,11 +126,6 @@ public int getBlock(){
     return Block;
 }
 
-public static void Defend(){
-
-}
-
-
 public String toString(){
     return "Defend";
 }
@@ -141,17 +136,23 @@ public String toString(){
 }
 
 static class Strike extends Card {
-    int Cost;
-public static void Strike(){
-
+    int Cost = 1;
+    int Damage = 6;
+public int getDamage(){
+    return Damage;
 }
+public int getCost() {
+    return Cost;
+}
+public int getBlock(){
 
+return 0;
+}
 
 public String toString(){
     return "Strike";
 }
 }
-
 
 
 

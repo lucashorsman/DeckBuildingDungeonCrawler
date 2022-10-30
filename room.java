@@ -1,40 +1,43 @@
+//Handles Turns, player input and enemy turns
+
+import java.util.Random;
 import java.util.Scanner;
 
 public class Room {
     static Player player = new Player();
-    public static int Floor = 0;
+
+    public static int FloorNum = 0;
+
     public static int getFloor() {
-        return Floor;
+        return FloorNum;
     }
 
     public static int i;
+
     public static Scanner in = new Scanner(System.in);
-    public static int EnemyHP = 10; // store in room.java
-    public static int playerTurn = 0;
-    public static void startFloor() {
+    public static int EnemyHP; // store in room.java
+    public static int Turn = 0;
 
-        // generate mob to fight
-        playerTurn = 0;
-        Floor++;
-        Card.createDrawPile();
-        
-
+    public static int getTurn() {
+        return Turn;
     }
 
     public static void enemyPhase() {
-        
+
         System.out.println("-------------------------------------------------");
-        player.resetENG();
         System.out.println("EnemyTurnHere");
+        Floor.tempMob.mobTurn();
         Run.PlayerTurn = true;
         
-
     }
-
+    
     public static void playerPhase() {
+        player.resetENG();
+        player.resetBlock();
         // check if draw pile >=3 then move on, else combine draw +discard then shuffle,
         // then draw
-        playerTurn++;
+        Turn++;
+        Floor.tempMob.mobIntent();
         Card.DrawHand();
 
         while (true) {
@@ -57,6 +60,11 @@ public class Room {
                 System.out.println("Your discard is: " + Card.getDiscard());
             } else if (i == 12) {
                 System.out.println("Stats: " + player);
+            }else if(i==13){
+                Floor.tempMob.mobIntent();
+            }
+            else if(i==14){
+                System.exit(0);
             } else {
                 player.play(i);
                 System.out.println("played yaself");

@@ -1,5 +1,19 @@
-import java.util.Scanner;
-// maybe i need to bring both methods here, and use a state machine to control whos turn it is
+
+//TODO add more cards
+//TODO Add more enemies
+//TODO create  enemy AI-- + Multi- enemy rooms
+
+
+//TODO Devise Methods for Vuln and Strength - and debuffs -- mobs and player 
+//TODO Create floor + fight generator
+
+
+
+//Potions
+//Relics??
+
+
+
 public class Run {
   public static boolean PlayerTurn = true;
   public static boolean running = true;
@@ -8,12 +22,12 @@ public class Run {
     // this file initializes the game, and starts the loop
 
     Card.deckInit(); 
-    
+  
 
     System.out.println("Welcome traveler...\n Your Deck contains: " + Card.getDeck());
     System.out.println("Intitalizing game elements");
     System.out.println("Stats: " + Room.player);
-    Room.startFloor();
+    Floor.startFloor();
     
     while (running) {
 
@@ -27,8 +41,8 @@ public class Run {
 
     }
     while (!running) {
-      System.out.println("Stats: " + Room.player);
       System.out.println("to shreds you say?");
+      System.out.println("Stats: " + Room.player);
       break;
     }
 
