@@ -25,7 +25,6 @@ class Mobs {
 
    public void setIsVuln(Boolean IsVuln, int turn) {
       this.IsVuln = IsVuln;
-      
 
    }
 
@@ -88,7 +87,7 @@ class SlimeL extends Mobs {
 }
 
 class Cultist extends Mobs {
-   static int baseATK = 6;
+   static int baseATK = 3;
    static int strength = 0;
    static int HP = 36;
    static boolean IsRitual = false;
@@ -97,20 +96,30 @@ class Cultist extends Mobs {
       return HP;
    }
 
+   private int attackValue() {
+
+      return baseATK + strength;
+
+   }
+
    public void mobTurn() {
       int CurrentTurn = Room.getTurn();
       if (CurrentTurn == 1) {
          Ritual(true);
          System.out.println("Cultist Prays...");
       } else if (CurrentTurn > 1) {
-         Player.applyDamage(baseATK + strength);
-         System.out.println("Cultist attacks for " + (baseATK + strength));
+         Player.applyDamage(attackValue());
+         System.out.println("Cultist attacks for " + attackValue());
 
       }
       if (IsRitual) {
          System.out.print("Cultist Gained 3 Strength From its Ritual!");
-         strength += 3;
+         addStrength(3);
       }
+   }
+
+   private void addStrength(int strengthValue) {
+      strength += strengthValue;
    }
 
    public void mobIntent() {
@@ -120,13 +129,13 @@ class Cultist extends Mobs {
          System.out.println("Cultist Will Pray - Ritual Adds 3 Strength each turn");
       } else if (CurrentTurn > 1) {
 
-         System.out.println("Cultist will attack for " + (baseATK + strength));
+         System.out.println("Cultist will attack for " + attackValue());
 
       }
 
    }
 
-   void Ritual(Boolean x) {
+   private void Ritual(Boolean x) {
       if (x) {
          IsRitual = true;
       } else {

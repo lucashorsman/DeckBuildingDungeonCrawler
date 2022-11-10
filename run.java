@@ -1,7 +1,7 @@
 
 //TODO add more cards
 //TODO Add more enemies
-//TODO create  enemy AI-- + Multi- enemy rooms
+//TODO create  enemy AI + Multi-enemy rooms
 
 
 //TODO Devise Methods for Vuln and Strength - and debuffs -- mobs and player 

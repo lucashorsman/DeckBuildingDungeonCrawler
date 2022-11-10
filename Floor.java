@@ -6,31 +6,28 @@ import java.util.Random;
 
 public class Floor {
     static int Floor;
-    static List<Mobs> MobList = new ArrayList<>(); 
+    static List<Mobs> MobList = new ArrayList<>();
     static Random rand = new Random();
     static int randommobint;
     static Mobs tempMob;
 
-    
     public static int getRandommobint() {
         return randommobint;
     }
 
-
-    public static void MobInit(){
+    public static void MobInit() {
         Mobs slime = new Slime();
-     Mobs slimeL = new SlimeL();
-     Mobs cultist = new Cultist();
+        Mobs slimeL = new SlimeL();
+        //Mobs cultist = new Cultist();
         // MobList.add(slime);
         // MobList.add(slimeL);
-        MobList.add(cultist);
-         randommobint = rand.nextInt(MobList.size());
-        //store mob values
-        //get random in similar way to play method in player
-        
+        MobList.add(new Cultist());
+        randommobint = rand.nextInt(MobList.size());
+        // store mob values
+        // get random in similar way to play method in player
+
     }
-    
-    
+
     public static void startFloor() {
         MobInit();
         tempMob = MobList.get(randommobint);
@@ -39,7 +36,6 @@ public class Floor {
         Room.Turn = 0;
         Floor++;
         Card.createDrawPile();
-        
 
     }
 
